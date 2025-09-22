@@ -1,3 +1,0 @@
-asyncpg==0.27.0
-telethon==1.28.5
-psycopg2-binary==2.9.6
