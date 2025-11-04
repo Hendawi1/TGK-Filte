@@ -747,7 +747,7 @@ async def check_expiries():
 
 ```
 Реферальная система
-    │
+           │
     User A приглашает 4 человека
            ↓
     Каждый регистрируется через его ссылку
@@ -1124,8 +1124,8 @@ logger.info(
 
 ```
 Было:                     Станет:
-─────────────────         ───────────────────
-1. /add                   1. Кнопка "Добавить канал"
+──────────────         ─────────────────
+1. /add                    1. Кнопка "Добавить канал"
 2. Ввести @channel        2. Inline-форма с валидацией
 3. Ввести keywords        3. Теги с автодополнением
 4. Подтвердить           4. Одна кнопка "Готово"
@@ -1136,25 +1136,29 @@ logger.info(
 **Архитектурные изменения:**
 
 ```
-Текущая архитектура
-    │
+[Текущая архитектура]
+           │
     Telethon (User Client + Bot Client)
            ↓
      Единая кодовая база
            ↓
       PostgreSQL
+
+
+```
+        ↓[Переход]↓
+      
+```
+    
+[Новая архитектура]
     │
-    ↓ Переход
-    │
-Новая архитектура
-    │
-    Backend (Telethon)   Frontend (aiogram)
+Backend (Telethon)   Frontend (aiogram)
     │                    │
     • Monitoring         • UI/UX
     • Processing         • Callbacks
     • Business           • Validation
            │             │
-           └─────┬───────┘
+           └─────┬─────┘
                  ↓
            PostgreSQL
 ```
@@ -1244,20 +1248,15 @@ AI анализирует контекст:
 | **Cache** | Redis | Хранение результатов |
 | **Processing** | Celery | Асинхронная обработка |
 
-**Производительность AI-модуля:**
-
-- **Латентность**: <2 секунды на сообщение
-- **Точность**: >90% для категоризации
-- **Стоимость**: ~$0.001 на сообщение
-- **Кеширование**: 70% запросов из кеша
 
 ---
 
 ### Контакты и ссылки
 
 - **GitHub**: [github.com/hendawi/tgk-filter-bot](https://github.com/Hendawi1/TGK-Filte/tree/main/tgk-filter-bot)
+- **Документация**: [tgk-filter-bot/README.md](https://github.com/Hendawi1/TGK-Filte/blob/main/tgk-filter-bot/README.md)
 - **Автор**: [@HENDAW1](https://t.me/HENDAW1)
-- **Документация**: [github.com](https://github.com/Hendawi1/TGK-Filte/blob/main/tgk-filter-bot/README.md)
+
 
 ---
 
